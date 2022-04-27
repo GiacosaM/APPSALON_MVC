@@ -59,14 +59,12 @@ class Email {
         $mail->IsSMTP();
         $mail->SMTPAuth = true;
         $mail->From = $mail->Username;
-
         $mail->isHTML(TRUE);
         $mail->CharSet = 'UTF-8';
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Parece que has olvidado 
         tu Password, sigue el siguiente enlace para recuperarla </P>";
-        $contenido .= "<p>Presiona aquí: <a href='http://". $_SERVER["HTTP_HOST"] . "/recuperar?token=" . 
-        $this->token . "'>Reestablecer Password</a></p>";
+        $contenido .= "<p>Presiona aquí: <a href='http://". $_SERVER["HTTP_HOST"] . "/recuperar?token=" .$this->token . "'>Reestablecer Password</a></p>";
         $contenido .= "<p>Si tu no creaste esta cuenta, puedes ignorar este mensaje </p>";
         $contenido .= '</html>';
         $mail->Body = $contenido;
