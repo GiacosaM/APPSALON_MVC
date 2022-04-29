@@ -17,7 +17,7 @@ class Email {
         $this->token = $token;
     }
 
-  /*   public function enviarConfirmacion() {
+    public function enviarConfirmacion() {
 
         $mail = new PHPMailer();
         $mail->SMTPSecure = 'tls';
@@ -43,31 +43,6 @@ class Email {
         $mail->send();
 
 
-    } */
-    public function enviarConfirmacion() {
-
-        $mail = new PHPMailer();
-        $mail->isSMTP();
-        $mail->Host = 'smtp.mailtrap.io';
-        $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '25281089791d5d';
-        $mail->Password = 'e967dc1bfdaeb9';
-
-        $mail->setFrom('cuentas@uptask.com');
-        $mail->addAddress('cuentas@uptask.com', 'uptask.com');
-        $mail->Subject = 'Confirma tu Cuenta';
-
-        $mail->isHTML(TRUE);
-        $mail->CharSet = 'UTF-8';
-        $contenido = '<html>';
-        $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has Creado tu cuenta en 
-        AppSalon, solo debes confirmarla presionando en el siguiente enlace </P>";
-        $contenido .= "<p>Presiona aquí: <a href='http://". $_SERVER["HTTP_HOST"] . "/confirmar-cuenta?token=".$this->token."'>Confirmar Cuenta</a> </p>";
-        $contenido .= "<p>Si tu no creaste esta cuenta, puedes ignorar este mensaje </p>";
-        $contenido .= '</html>';
-        $mail->Body = $contenido;
-        $mail->send();
     }
 
     public function enviarInstrucciones() {
